@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<!-- saved from url=(0119)file:///Users/remi/Desktop/Lay%20Offshore%20Website/Re%CC%81mi%20Lay%20-%20Offshore%20Wind%20&%20Subsea%20Engineer.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rémi Lay - Offshore Wind &amp; Subsea Engineer</title>
+    <!-- Add favicon here -->
+    <link rel="icon" type="image/png" href="./Pictures/favicon_deep blue 02.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0B1624;
+            --secondary-dark: #183355;
+            --accent-blue: #4E84C4;
+            --light-steel: #53667D;
+            --soft-light: #DBE4ED;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--soft-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(11, 22, 36, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--soft-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23183355" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            z-index: 2;
+            position: relative;
+            padding-top: 2rem;
+            padding-bottom: 1rem; 
+            margin-bottom: 1rem;
+        }
+
+        .hero-logo {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-blue);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            color: var(--soft-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        /* .cta-button {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: var(--white);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-blue);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--accent-blue);
+            transform: translateY(-2px);
+        }*/
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--light-steel);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--secondary-dark);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(78, 132, 196, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 30px rgba(78, 132, 196, 0.2);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-blue);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+
+        .service-card h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: var(--light-steel);
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--secondary-dark);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(78, 132, 196, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(78, 132, 196, 0.2);
+        }
+
+        .project-image {
+            max-width: 100%;
+            max-height: 100%;
+            width: 300;
+            height: auto;
+            background: linear-gradient(45deg, var(--accent-blue), var(--light-steel));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--white);
+            overflow: hidden;
+            object-fit: contain;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .project-content .project-type {
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            color: var(--light-steel);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Approach Section */
+        .approach-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--white);
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .step p {
+            color: var(--light-steel);
+            line-height: 1.6;
+        }
+        /* Recommendations */
+        .Recommendations-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--white);
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .step r {
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-decoration: none;
+
+        }
+        .step p {
+            text-align: justify !important;
+            color: var(--light-steel);
+            line-height: 1.6;
+        }
+        .rounded-circle {
+	    border-radius: 50%!important;
+        }
+        /* Contact Section */
+        .contact {
+            background: var(--secondary-dark);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            color: var(--white);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: var(--light-steel);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--soft-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-blue);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-blue);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid var(--secondary-dark);
+        }
+
+        footer p {
+            color: var(--light-steel);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.4rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .projects-grid,
+            .approach-steps {
+                grid-template-columns: 1fr;
+            }
+            .Recommendations-steps {
+                grid-template-columns: 1fr;
+            }
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav style="background: rgba(11, 22, 36, 0.95);">
+        <div class="container">
+            <img src="./Rémi Lay - Offshore Wind &amp; Subsea Engineer_files/logo secondaire_white.png" alt="Logo" class="Logo" style="width: 140px; height: auto;">
+            <ul class="nav-links">
+                <li><a href="file:///Users/remi/Desktop/Lay%20Offshore%20Website/index.html#home">Home</a></li>
+                <li><a href="file:///Users/remi/Desktop/Lay%20Offshore%20Website/index.html#services">Services</a></li>
+                <li><a href="file:///Users/remi/Desktop/Lay%20Offshore%20Website/index.html#projects">Projects</a></li>
+                <li><a href="file:///Users/remi/Desktop/Lay%20Offshore%20Website/index.html#approach">Approach</a></li>
+                <li><a href="file:///Users/remi/Desktop/Lay%20Offshore%20Website/index.html#recommendations">Recommendations</a></li>
+                <li><a href="file:///Users/remi/Desktop/Lay%20Offshore%20Website/index.html#contact">Contact</a></li>
+                <li>
+                    <a href="https://linkedin.com/in/r%C3%A9mi-lay-52787864/" target="_blank" class="linkedin-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                
+    
+    
+</div>
+                <div class="hero-content fade-in">
+                <h1> </h1>
+                <img src="./Pictures/remi-profile.png" alt="Rémi Lay" class="Remi-profile" style="width: 200px; height: auto;">
+                <h1>Rémi Lay</h1>
+                <h2>Offshore Wind &amp; Subsea Engineer</h2>
+                <p>12+ years experienced Offshore Project Manager with a strong track record in leading cross-functional teams to deliver high-impact projects. Skilled in fostering collaboration in multicultural settings, ensuring safety, quality, and cost-efficiency.</p>
+                
+            <p>Recognized for effective problem-solving, strategic planning, and delivering results under complex project demands.</p></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                <h2>Engineering Services</h2>
+                <p>Comprehensive offshore engineering solutions from concept to reality</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Package Management</h3>
+                    <ul style="color: var(--light-steel); padding-left: 1.2rem; list-style-type: disc;">
+                    <li>Technical engineering &amp; design specification,</li>
+                    <li>Tendering process,</li>
+                    <li>Manufacturing &amp; test plan,</li>
+                    <li>Disciplines and stakeholders coordination,</li>
+                    <li>Logistics plan.</li>
+                    <li>... </li>
+                    </ul>
+                </div>
+                <div class="service-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <div class="service-icon">🚢</div>
+                    <h3>Project Management</h3>
+                    <ul style="color: var(--light-steel); padding-left: 1.2rem; list-style-type: disc;">
+                    <li>Project execution scenario &amp; alternatives,</li>
+                    <li>Vessel mobilization and marine coordination,</li>
+                    <li>Interface management,</li>
+                    <li>Budget and planning control,</li>
+                    <li>Contractual strategy for operation.</li>
+                    <li>... </li>
+                    </ul>
+                </div>
+                <div class="service-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <div class="service-icon">📊</div>
+                    <h3>Asset management</h3>
+                    <ul style="color: var(--light-steel); padding-left: 1.2rem; list-style-type: disc;">
+                    <li>Budgeting of OPEX &amp; CAPEX, planning, and IMR operations,</li>
+                    <li>Digital monitoring &amp; fleet analytics,</li>
+                    <li>Spare part philosophy,</li>
+                    <li>Root cause analysis &amp; continuous improvement implementation,</li>
+                    <li>... </li>
+                </ul></div>
+                <div class="service-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <div class="service-icon">🔧</div>
+                    <h3>Installation Engineering</h3>
+                    <ul style="color: var(--light-steel); padding-left: 1.2rem; list-style-type: disc;">
+                    <li>Installation method statement &amp; risk analysis documentation,</li>
+                    <li>Weather Window optimization,</li>
+                    <li>Spare part philosophy,</li>
+                    <li>Root cause analysis &amp; continuous improvement implementation,</li>
+                    <li>... </li>
+                </ul></div>
+                <div class="service-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Subsea/Offshore Structural Design</h3>
+                    <ul style="color: var(--light-steel); padding-left: 1.2rem; list-style-type: disc;">
+                    <li>Structural analysis,</li>
+                    <li>Installation analysis,</li>
+                    <li>Fabrication drawing review,</li>
+                    <li>Contractor documents review,</li>
+                    <li>Codes & standards: API, AISC, ASME, Total's GS</li>
+                    <li>...</li>
+                </ul>
+                </div>
+                <div class="service-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <div class="service-icon">🛠️</div>
+                    <h3>On-site Technical Support</h3>
+                    <ul style="color: var(--light-steel); padding-left: 1.2rem; list-style-type: disc;">
+                    <li>Operation management,</li>
+                    <li>Field engineering,</li>
+                    <li>Real-time technical support,</li>
+                    <li>Offshore / onshore rotation,</li>
+                    <li>Training,</li>
+                    <li>...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                <h2>Projects Portfolio</h2>
+                <p>Major offshore wind and subsea projects delivered across Europe, USA, and Africa</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <img src="./Pictures/vw.jpeg" alt="VW" class="project-image">
+                    <div class="project-content">
+                        <h3>Vineyard Wind 1 - VY, US &amp; Doggerbank - SSE, UK</h3>
+                        <div class="project-type">Offshore Wind Installation | Haliade-X (13–14 MW) | First utility-scale US offshore wind farm (806 MW) &amp; world’s largest wind farm cluster (3.6 GW) | General Electric</div>
+                        <p>Led the engineering management of all CAPEX transport &amp; installation (T&amp;I) assets for GE’s Haliade-X turbines, focusing on operational readiness, compliance with offshore standards (DNV, API), and field reliability. Defined system architecture for serviceability and operability, managed equipment specs (lift tools, sea-fastening, commissioning equipment), and oversaw lifecycle processes from design validation to site handover. Directed a team of field engineers for multi-project technical documentation and test planning. Drove cross-project synergies and asset improvement plans, enabling replication for upcoming US and European offshore campaigns.</p>
+                    </div>
+                </div>
+                <div class="project-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <img src="./Pictures/3ba8bf16-a0ed-4b28-b575-e6a9d14f3ec8.jpg" alt="Innovation" class="project-image">
+                    <div class="project-content">
+                        <h3>Lead Mobilization Engineer – Moray East, Kaskasi, HOW2, Banc de Guérande - EU</h3>
+                        <div class="project-type">Offshore Wind Installation | Foundation, Cable, WTG, OSS scopes | 950+ MW project scales | North Sea &amp; Atlantic | DEME</div>
+                        <p>
+Managed base port and vessel mobilizations across multiple EPC scopes (monopile, jacket, WTG, OSS). Engineered detailed stowage and loading plans for DP2 installation vessels, balancing crane reach, structural limits, MWS constraints, and deck payload. Coordinated 24/7 marshaling logistics (up to 4 vessels), supervised 30+ personnel per shift, and interfaced with clients, authorities, and engineering leads. Controlled mobilization budgets (~€1M/project), ensuring on-time asset readiness with zero LTI. Streamlined operations at Vlissingen harbor through rapid-turnaround workflows and adaptive quay occupancy strategies.</p>
+                    </div>
+                </div>
+                <div class="project-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <img src="./Pictures/Borselle 01+02 Innovation at work.jpg" alt="Innovation" class="project-image">
+                    <div class="project-content">
+                        <h3>Borselle 01 + 02 - Ørsted, NL</h3>
+                        <div class="project-type">Offshore Wind Installation | 752 MW | Dutch sector, North Sea | Monopile foundation installation | DEME</div>
+                        <p></p><p>
+Embedded onboard the Innovation jack-up vessel, I executed marine coordination and deck logistics for Ørsted’s Borssele site. Supervised foundation installation sequences, real-time MOC processes, and logistics loops (load-out, crew transfer, heavy lift). Provided interface support between marine ops, construction supervision, and permitting authorities. Focused on high-efficiency execution during constrained weather windows and ensured installation records aligned with commissioning KPIs.</p><p></p>
+                    </div>
+                </div><div class="project-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <img src="./Pictures/1688203159695.jpg" alt="Deepblue" class="project-image">
+                    <div class="project-content">
+                        <h3>Kaombo Subsea Umbilical Riser &amp; Flowline - Total, AO</h3>
+                        <div class="project-type">Subsea Engineering | 2,000m water depth | 300 km of pipeline &amp; 80 subsea structures | Two FPSOs | One of Africa’s largest subsea developments | TechnipFMC</div>
+                        <p>
+</p>
+                    <p>
+Led structural design of permanent subsea assets (FLETs, PLETs, pig launcher/receivers) and heavy-lift handling systems for ultra-deepwater deployment. Developed lifting spreaders, seafastening, and boat landing designs validated under DAFs and fatigue life cycles per DNV-RP-C203. Deployed to Angola for field execution: coordinated deck layout, lift operations, and handover of subsea packages from fabrication yard to offshore vessel. Ensured construction deliverables met project tolerances, installation metocean constraints, and FPSO tie-in deadlines.</p></div>
+                </div>
+                <div class="project-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <img src="./Pictures/07f633e12133ce7f05ac11a81d8b3787.jpeg" alt="Coral" class="project-image">
+                    <div class="project-content">
+                        <h3>Coral South FLNG - ENI, MZ</h3>
+                        <div class="project-type">FLNG Topsides | 3.4 MTPA floating LNG unit | Deepwater gas liquefaction | First FLNG unit deployed in Africa | TechnipFMC</div>
+                        <p>
+</p>
+                    <p>Contributed to detailed design of primary structures for topside flare tower and pipe racks (8,000+ tons). Applied API and marine operation DNV standards for accidendal, operational, lifting, and offshore loading. Led internal training on structural methodologies and co-authored design guidelines for project rollout. Played a key role in the technical proposal phase that secured the EPC contract award in 2017.</p></div>
+                </div>
+            <div class="project-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <img src="./Pictures/prelude-flng.jpg" alt="Prelude" class="project-image">
+                    <div class="project-content">
+                        <h3>Prelude FLNG - Shell, AU</h3>
+                        <div class="project-type">FLNG Topsides | World's largest FLNG vessel | Weathervaning turret | 600m deep mooring | Australia | SBM Offshore</div>
+                        <p>Executed critical hull–turret integration assessments for the Prelude turret bearing system. Applied Monte Carlo simulations and tolerance stack-up analysis using FEA to validate yard fabrication margins. Delivered fabrication-constrained design inputs for turret interface structures. Supported construction readiness by resolving integration challenges across EPC interfaces.
+
+</p>
+                    </div>
+                </div></div>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section id="approach">
+        <div class="container">
+            <div class="section-header" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                <h2>My Approach</h2>
+                <p>A proven 4-step methodology for delivering successful offshore projects</p>
+            </div>
+            <div class="approach-steps">
+                <div class="step" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <div class="step-number">1</div>
+                    <h3>Discovery</h3>
+                    <p>Comprehensive project analysis, stakeholder alignment, and technical feasibility assessment to establish clear objectives and constraints.</p>
+                </div>
+                <div class="step" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <div class="step-number">2</div>
+                    <h3>Plan &amp; Mobilize</h3>
+                    <p>Detailed engineering design, vessel mobilization planning, and team coordination to ensure optimal resource allocation and timeline management.</p>
+                </div>
+                <div class="step" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <div class="step-number">3</div>
+                    <h3>Execute Offshore</h3>
+                    <p>On-site project execution with real-time coordination, safety management, and quality control to deliver installations to specification.</p>
+                </div>
+                <div class="step" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <div class="step-number">4</div>
+                    <h3>Deliver &amp; Debrief</h3>
+                    <p>Project completion, performance analysis, and lessons learned documentation to drive continuous improvement across future projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendation -->
+    <section id="recommendations">
+        <div class="container">
+            <div class="section-header" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                <h2>Recommendations</h2>
+                
+            </div>
+            <div class="Recommendations-steps">
+                <div class="step" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <img src="./Pictures/swillis.jpeg" alt="Thumbnail Image" class="rounded-circle img-raised" style="width: 22%; border-radius: 50%!important">
+                    <h3>Steven W.</h3>
+                    <r>Installation Manager - Doggerbank - GE Renewable</r>
+                    <p>I worked with Rémi during engineering and execution phases and can’t praise highly enough his professionalism and engineering skills when it came to Wind Turbine Generator Installation and Installation Tooling. Without a doubt I knew I could trust Rémi with any aspect during the design phases and during the operations/ project execution phases.</p> 
+
+                    <p>Extremely knowledgable, and second to none interpersonal skills compounded with deep technical domain knowledge but also understanding of project management and project execution - both on the drawing board and ‘in the real world’</p> 
+
+                    <p>Would I work with Rémi again? Absolutely - and I hope our paths cross again.</p>
+                </div>
+                <div class="step" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <img src="./Pictures/aepp.jpeg" alt="Thumbnail Image" class="rounded-circle img-raised" style="width: 22%; border-radius: 50%!important">
+                    <h3>Arnaud E.</h3>
+                    <r>Department Manager - PMO - GE Renewable</r>
+                    <p>I had the pleasure of working with Rémi in his role as T&amp;I Field Services Manager, and he’s been a fantastic talent to the team. He’s proactive, well-rounded, and brings a wealth of experience in offshore and onshore site and T&amp;I operations, asset management, IMR and HSE.</p> 
+
+                    <p>Rémi’s leadership played a huge role in keeping our entire fleet at 100% serviceability, with zero recorded downtime, an incredible achievement that reflects his dedication and expertise to operational excellence. On top of that, he’s been a driving force in shaping the department’s identity and growth, building a strong and capable team along the way.</p> 
+
+                    <p>If you’re looking for someone who knows how to get things done while developing and inspiring those around him, I would highly recommend Rémi.</p>
+                </div>
+<div class="step" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                    <img src="./Pictures/samh.jpeg" alt="Thumbnail Image" class="rounded-circle img-raised" style="width: 22%; border-radius: 50%!important">
+                    <h3>Sam H.</h3>
+                    <r>Installation Manager - Vineyard 1 - GE Renewable</r>
+                    <p>I like the way you work and collaborate. You have a communication style that works well with mine. You are able to find creative solutions and communicate them to non-technical people like myself.</p> 
+
+                    <p>Furthermore, you are an excellent writer, and for me your emails are among the best in the company. When you write you provide a good level of background and detail - its clear what you are writing about and why.</p> 
+
+                    <p>You're a great engineer and problem solver with a unique ability to work in technical engineering and finance (CAPEX). I think this is a rare and important set of skills to be able to work in both of these fields. It has been an absolute pleasure working with you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+                <img src="./Rémi Lay - Offshore Wind &amp; Subsea Engineer_files/icone_white.png" alt="Logo" class="Logo" style="width: 350px; height: auto;">
+                <h2>Let's Work Together</h2>
+                <p>Ready to discuss your next offshore wind or subsea project ?</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Available for project management roles, consulting engagements, and technical advisory services worldwide.</p>
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:remi.lay@gmail.com" class="contact-link">
+                        <div class="contact-icon"> </div>
+                        <span>remi.lay@gmail.com</span>
+                    </a>
+                    <a href="https://linkedin.com/in/r%C3%A9mi-lay-52787864/" class="contact-link" target="_blank">
+                        <div class="contact-icon"> </div>
+                        <span>LinkedIn Profile</span>
+                    </a>
+                    <a href="file:///Pictures/CV_2024-11-24_Remi_Lay_eng.pdf" class="contact-link" download="">
+                        <div class="contact-icon"> </div>
+                        <span>Download Resume</span>
+                    </a>
+                    <div class="contact-link">
+                        <div class="contact-icon"> </div>
+                        <span>Nantes, France</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Lay Offshore Solutions | All rights reserved. Rémi Lay</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(11, 22, 36, 0.98)';
+            } else {
+                nav.style.background = 'rgba(11, 22, 36, 0.95)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.service-card, .project-card, .step, .section-header').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+</body></html>
