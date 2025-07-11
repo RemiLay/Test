@@ -779,6 +779,12 @@
                 </li>
                 </a>
             </ul>
+	    <!-- ADD THIS HAMBURGER BUTTON -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 <!-- Mobile Menu -->
@@ -1184,40 +1190,40 @@ Led structural design of permanent subsea assets (FLETs, PLETs, flowlines) and h
     </footer>
 
     <script>
-	    /* java */ 
-	    javascriptfunction toggleMenu() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('overlay');
-    const hamburger = document.querySelector('.hamburger');
-    
-    mobileMenu.classList.toggle('active');
-    overlay.classList.toggle('active');
-    hamburger.classList.toggle('active');
-    
-    // Prevent body scroll when menu is open
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
-}
-
-function closeMenu() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('overlay');
-    const hamburger = document.querySelector('.hamburger');
-    
-    mobileMenu.classList.remove('active');
-    overlay.classList.remove('active');
-    hamburger.classList.remove('active');
-    
-    // Restore body scroll
-    document.body.style.overflow = 'auto';
-}
-
-// Close menu when pressing Escape key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeMenu();
-    }
-});
-	    // end java 
+		    /* java */ 
+	function toggleMenu() {
+	    const mobileMenu = document.getElementById('mobileMenu');
+	    const overlay = document.getElementById('overlay');
+	    const hamburger = document.querySelector('.hamburger');
+	    
+	    mobileMenu.classList.toggle('active');
+	    overlay.classList.toggle('active');
+	    hamburger.classList.toggle('active');
+	    
+	    // Prevent body scroll when menu is open
+	    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+	}
+	
+	function closeMenu() {
+	    const mobileMenu = document.getElementById('mobileMenu');
+	    const overlay = document.getElementById('overlay');
+	    const hamburger = document.querySelector('.hamburger');
+	    
+	    mobileMenu.classList.remove('active');
+	    overlay.classList.remove('active');
+	    hamburger.classList.remove('active');
+	    
+	    // Restore body scroll
+	    document.body.style.overflow = 'auto';
+	}
+	
+	// Close menu when pressing Escape key
+	document.addEventListener('keydown', function(e) {
+	    if (e.key === 'Escape') {
+	        closeMenu();
+	    }
+	});
+		    // end java 
 	    
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
