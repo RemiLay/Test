@@ -282,44 +282,221 @@
             line-height: 1.5;
         }
 
-        /* About Me Section */
-        .About-steps {
+      
+       /* About Me Section */
+        .about-section {
+            padding: 5rem 0;
+            background-color: var(--primary-dark);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 2rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+            margin-bottom: 3rem;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 280px;
+            height: 280px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 3px solid var(--accent-blue);
+            box-shadow: 0 10px 30px rgba(78, 132, 196, 0.3);
+        }
+
+        .about-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--soft-light);
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .about-text p:first-child {
+            font-size: 1.2rem;
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            padding: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--secondary-dark);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(78, 132, 196, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 30px rgba(78, 132, 196, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        .stat-description {
+            font-size: 0.9rem;
+            color: var(--light-steel);
+            margin-top: 0.5rem;
+        }
+
+        /* Skills & Certifications */
+        .skills-section {
+            margin-top: 3rem;
+            padding: 2rem 0;
+        }
+
+        .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
 
-        .step {
-            text-align: center;
-            position: relative;
+        .skill-category {
+            background: var(--secondary-dark);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(78, 132, 196, 0.1);
         }
 
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background: var(--accent-blue);
-            border-radius: 50%;
+        .skill-category h4 {
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--white);
-            margin: 0 auto 1.5rem;
+            gap: 0.5rem;
         }
 
-        .step h3 {
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-category li {
+            color: var(--soft-light);
+            padding: 0.3rem 0;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .skill-category li:before {
+            content: "▸";
+            color: var(--accent-blue);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Personal Touch */
+        .personal-touch {
+            background: var(--secondary-dark);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .personal-touch h4 {
             color: var(--white);
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
 
-        .step p1 {
-            color: var(--white);
-            line-height: 1.6;
-	    max-width: 600px;
-	    align-items: left;
-            justify-content: center;
+        .personal-touch p {
+            color: var(--light-steel);
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .about-image img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .about-text {
+                text-align: left;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
         }
         /* Recommendations */
         .Recommendations-steps {
@@ -495,7 +672,7 @@
                 <li><a href="index.html#home">Home</a></li>
                 <li><a href="index.html#services">Services</a></li>
                 <li><a href="index.html#projects">Projects</a></li>
-                <li><a href="./index.html#About">About Me</a></li>
+                <li><a href="./index.html#about">About Me</a></li>
                 <li><a href="./index.html#recommendations">Recommendations</a></li>
                 <li><a href="./index.html#contact">Contact</a></li>
                 <li>
@@ -670,23 +847,116 @@ Led structural design of permanent subsea assets (FLETs, PLETs, flowlines) and h
     </section>
 
     <!-- About Me Section -->
-    <section id="About">
+    <section id="about" class="about-section">
         <div class="container">
-            <div class="section-header" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
+            <div class="section-header fade-in">
                 <h2>About Me</h2>
-		    <img src="./Pictures/remi-profile.png" alt="Rémi Lay portrait" style="border-radius: 12px; max-width: 100%;">
-		    <p1>I’m a engineer from the 90s and offshore specialist with over a decade of experience delivering complex energy infrastructure — from deepwater subsea systems to large-scale turbine installations across Europe and the U.S. I work at the intersection of technical design, project management, and field execution, making sure what’s engineered on paper performs where it matters most.</p1>
-		    <p1>I’ve led engineering packages, managed mobilizations, coordinated across ports, OEMs, and vessel teams, and contributed to project delivery on some of the sector’s most visible developments. Whether it’s managing cost, quality, and planning across a €15M asset scope or leading field engineers through high-pressure phases of a campaign — I bring structure, clarity, and calm leadership to complex, multi-stakeholder environments.</p1>
-		    <p1>I believe projects succeed when people trust each other. I value clear communication, shared goals, and the kind of leadership that creates confidence across teams — from site crews to senior management. I’m known for being reliable under pressure, pragmatic when solving problems, and committed to building strong working relationships across cultures and disciplines.</p1>
-		    <p1>Outside work, I kitesurf. It keeps me connected to the wind, the sea, and the forces that shape our industry — a reminder that precision, timing, and respect for your environment are non-negotiable, whether you’re offshore or on a board.</p1>
-		    <p1>If you're looking for someone who combines engineering depth with project ownership and team leadership, I’d be glad to connect.</p1>
-		    <ul style="list-style: none; padding: 0;">
-			  <li><strong>12+ years</strong> in offshore energy</li>
-			  <li><strong>€15M+</strong> CAPEX scopes managed</li>
-			  <li><strong>6+ countries</strong> worked in (France, BE, NL, UK, Angola, USA)</li>
-			  <li><strong>GWO & BOSIET</strong> certified for offshore operations</li>
-			  <li><strong>Kitesurfer</strong> • DIYer • Offshore engineering enthusiast</li>
-		    </ul>
+            </div>
+            
+            <div class="about-content fade-in">
+                <div class="about-image">
+                    <img src="./Pictures/remi-profile.png" alt="Rémi Lay portrait">
+                </div>
+                
+                <div class="about-text">
+                    <p>I'm an engineer from the 90s and offshore specialist with over a decade of experience delivering complex energy infrastructure — from deepwater subsea systems to large-scale turbine installations across Europe and the U.S.</p>
+                    
+                    <p>I work at the intersection of technical design, project management, and field execution, making sure what's engineered on paper performs where it matters most. I've led engineering packages, managed mobilizations, coordinated across ports, OEMs, and vessel teams, and contributed to project delivery on some of the sector's most visible developments.</p>
+                    
+                    <p>Whether it's managing cost, quality, and planning across a €15M asset scope or leading field engineers through high-pressure phases of a campaign — I bring structure, clarity, and calm leadership to complex, multi-stakeholder environments.</p>
+                    
+                    <p>I believe projects succeed when people trust each other. I value clear communication, shared goals, and the kind of leadership that creates confidence across teams — from site crews to senior management. I'm known for being reliable under pressure, pragmatic when solving problems, and committed to building strong working relationships across cultures and disciplines.</p>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid fade-in">
+                <div class="stat-card">
+                    <div class="stat-number">12+</div>
+                    <div class="stat-label">Years Experience</div>
+                    <div class="stat-description">In offshore energy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">€15M+</div>
+                    <div class="stat-label">CAPEX Managed</div>
+                    <div class="stat-description">Project scopes delivered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Countries</div>
+                    <div class="stat-description">France, BE, NL, UK, Angola, USA</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Fleet Serviceability</div>
+                    <div class="stat-description">Zero recorded downtime</div>
+                </div>
+            </div>
+
+            <!-- Skills & Certifications -->
+            <div class="skills-section fade-in">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>🎓 Technical Expertise</h4>
+                        <ul>
+                            <li>Offshore Wind Installation</li>
+                            <li>Subsea Engineering</li>
+                            <li>Structural Design & Analysis</li>
+                            <li>Marine Operations</li>
+                            <li>Asset Management</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>🚢 Certifications</h4>
+                        <ul>
+                            <li>GWO Certified</li>
+                            <li>BOSIET Certified</li>
+                            <li>DNV Standards</li>
+                            <li>API & AISC Codes</li>
+                            <li>Offshore Operations</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>🌍 Global Experience</h4>
+                        <ul>
+                            <li>North Sea Operations</li>
+                            <li>Atlantic Projects</li>
+                            <li>US East Coast</li>
+                            <li>West Africa Deepwater</li>
+                            <li>Multi-cultural Teams</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Touch -->
+            <div class="personal-touch fade-in">
+                <h4>Beyond Engineering</h4>
+                <p>Outside work, I kitesurf. It keeps me connected to the wind, the sea, and the forces that shape our industry — a reminder that precision, timing, and respect for your environment are non-negotiable, whether you're offshore or on a board. If you're looking for someone who combines engineering depth with project ownership and team leadership, I'd be glad to connect.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
                <!-- <p>A proven 4-step methodology for delivering successful offshore projects</p>
             </div>
             <div class="About Me-steps">
