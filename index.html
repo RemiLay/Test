@@ -1191,38 +1191,64 @@ Led structural design of permanent subsea assets (FLETs, PLETs, flowlines) and h
 
     <script>
 		    /* java */ 
-	function toggleMenu() {
-	    const mobileMenu = document.getElementById('mobileMenu');
-	    const overlay = document.getElementById('overlay');
-	    const hamburger = document.querySelector('.hamburger');
-	    
-	    mobileMenu.classList.toggle('active');
-	    overlay.classList.toggle('active');
-	    hamburger.classList.toggle('active');
-	    
-	    // Prevent body scroll when menu is open
-	    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
-	}
-	
-	function closeMenu() {
-	    const mobileMenu = document.getElementById('mobileMenu');
-	    const overlay = document.getElementById('overlay');
-	    const hamburger = document.querySelector('.hamburger');
-	    
-	    mobileMenu.classList.remove('active');
-	    overlay.classList.remove('active');
-	    hamburger.classList.remove('active');
-	    
-	    // Restore body scroll
-	    document.body.style.overflow = 'auto';
-	}
-	
-	// Close menu when pressing Escape key
-	document.addEventListener('keydown', function(e) {
-	    if (e.key === 'Escape') {
-	        closeMenu();
-	    }
-	});
+	// Fixed JavaScript for hamburger menu
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('overlay');
+            const hamburger = document.getElementById('hamburger');
+            
+            if (mobileMenu && overlay && hamburger) {
+                mobileMenu.classList.toggle('active');
+                overlay.classList.toggle('active');
+                hamburger.classList.toggle('active');
+                
+                // Prevent body scroll when menu is open
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+            }
+        }
+
+        function closeMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('overlay');
+            const hamburger = document.getElementById('hamburger');
+            
+            if (mobileMenu && overlay && hamburger) {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                hamburger.classList.remove('active');
+                
+                // Restore body scroll
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Add event listeners when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click event to hamburger
+            const hamburger = document.getElementById('hamburger');
+            if (hamburger) {
+                hamburger.addEventListener('click', toggleMenu);
+            }
+
+            // Add click event to overlay
+            const overlay = document.getElementById('overlay');
+            if (overlay) {
+                overlay.addEventListener('click', closeMenu);
+            }
+
+            // Add click events to mobile menu links
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+        });
+
+        // Close menu when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMenu();
+            }
+        });
 		    // end java 
 	    
         // Smooth scrolling for navigation links
