@@ -953,7 +953,54 @@
             .contact-content {
                 grid-template-columns: 1fr;
             }
+	    /* Make gallery arrows always visible on mobile */
 	    .gallery-arrow {
+	        opacity: 1 !important;
+	        width: 35px;
+	        height: 35px;
+	        font-size: 1rem;
+	        background: rgba(0, 0, 0, 0.7);
+	        backdrop-filter: blur(5px);
+	    }
+	    
+	    /* Optional: Make them slightly more prominent on mobile */
+	    .gallery-arrow:active {
+	        background: rgba(0, 0, 0, 0.9);
+	        transform: translateY(-50%) scale(0.95);
+	    }
+	    
+	    /* Ensure the gallery container allows touch events */
+	    .project-gallery {
+	        touch-action: manipulation;
+	    }
+	    
+	    /* Make sure arrows are properly positioned */
+	    .gallery-arrow.prev {
+	        left: 10px;
+	    }
+	    
+	    .gallery-arrow.next {
+	        right: 10px;
+	    }
+	    
+	    /* Also update lightbox navigation for mobile */
+	    .lightbox-nav {
+	        opacity: 1 !important;
+	        width: 45px;
+	        height: 45px;
+	        font-size: 1.3rem;
+	        background: rgba(0, 0, 0, 0.7);
+	    }
+	    
+	    .lightbox-nav.prev {
+	        left: 10px;
+	    }
+	    
+	    .lightbox-nav.next {
+	        right: 10px;
+	    }
+
+	    /* .gallery-arrow {
                 width: 35px;
                 height: 35px;
                 font-size: 1rem;
@@ -971,7 +1018,7 @@
             
             .lightbox-nav.next {
                 right: 10px;
-            }
+            } */
         }
 
         /* Animations */
