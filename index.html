@@ -319,10 +319,10 @@
             line-height: 1.6;
         }
 
-        /* Projects Section */
+       /* Enhanced Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
 
@@ -339,19 +339,202 @@
             box-shadow: 0 15px 40px rgba(78, 132, 196, 0.2);
         }
 
-        .project-image {
-            max-width: 100%;
-            max-height: 100%;
-            width: 300;
-            height: auto;
+        /* Enhanced Gallery Container */
+        .project-gallery {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
             background: linear-gradient(45deg, var(--accent-blue), var(--light-steel));
+        }
+
+        .gallery-main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-main-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Gallery Navigation */
+        .gallery-nav {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 12px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .gallery-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-dot.active {
+            background: var(--accent-blue);
+            transform: scale(1.3);
+        }
+
+        .gallery-dot:hover {
+            background: var(--white);
+        }
+
+        /* Gallery Counter */
+        .gallery-counter {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--white);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Gallery Navigation Arrows */
+        .gallery-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            color: var(--white);
-            overflow: hidden;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .project-gallery:hover .gallery-arrow {
+            opacity: 1;
+        }
+
+        .gallery-arrow:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .gallery-arrow.prev {
+            left: 10px;
+        }
+
+        .gallery-arrow.next {
+            right: 10px;
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
             object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-caption {
+            color: var(--white);
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2001;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-nav.prev {
+            left: 20px;
+        }
+
+        .lightbox-nav.next {
+            right: 20px;
         }
 
         .project-content {
@@ -374,6 +557,26 @@
             color: var(--light-steel);
             font-size: 0.95rem;
             line-height: 1.5;
+        }
+
+        /* Gallery View Button */
+        .view-gallery-btn {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .view-gallery-btn:hover {
+            background: var(--light-steel);
+            transform: translateY(-2px);
         }
 
       
@@ -749,6 +952,25 @@
             .contact-content {
                 grid-template-columns: 1fr;
             }
+		.gallery-arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            
+            .lightbox-nav {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+            
+            .lightbox-nav.prev {
+                left: 10px;
+            }
+            
+            .lightbox-nav.next {
+                right: 10px;
+            }
         }
 
         /* Animations */
@@ -911,70 +1133,7 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <div class="section-header" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
-                <h2>Projects Portfolio</h2>
-                <p>Major offshore wind and subsea projects delivered across Europe, USA, and Africa</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
-                    <img src="./Pictures/vw.jpeg" alt="VW" class="project-image">
-                    <div class="project-content">
-                        <h3>Vineyard Wind 1 - VY, US &amp; Doggerbank - SSE, UK</h3>
-                        <div class="project-type">Offshore Wind Installation | Haliade-X (13–14 MW) | First utility-scale US offshore wind farm (806 MW) &amp; world’s largest wind farm cluster (3.6 GW) | General Electric</div>
-                        <p>Led the engineering management of CAPEX transport &amp; installation (T&amp;I) assets for GE’s Haliade-X turbines 14,7 MW, focusing on operational readiness, compliance with offshore standards (DNV), and field reliability. Defined system architecture for serviceability and operability, managed equipment specs (lift tools, sea-fastening, commissioning equipment), and oversaw lifecycle processes from design validation to project execution. Directed a team of field engineers for multi-project technical documentation and test planning. Drove cross-project synergies and asset improvement plans.</p>
-                    </div>
-                </div>
-                <div class="project-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
-                    <img src="./Pictures/dob.JPG" alt="DOB" class="project-image">
-                    <div class="project-content">
-                        <h3>Lead Mobilization Engineer – Moray East, Kaskasi, HOW2, Banc de Guérande - EU</h3>
-                        <div class="project-type">Offshore Wind Installation | Foundation, Cable, WTG, OSS scopes | 950+ MW project scales | North Sea &amp; Atlantic | DEME</div>
-                        <p>
-Managed base port and vessel mobilizations across multiple EPC scopes (monopile, jacket, WTG, OSS, cable). Engineered detailed stowage and loading plans for DP2 installation vessels, balancing crane reach, structural limits, MWS constraints, and deck payload. Coordinated 24/7 marshaling logistics (up to 4 vessels), supervised 30+ personnel per shift, and interfaced with clients, authorities, and engineering leads. Controlled mobilization budgets (~€1M/project), ensuring on-time asset readiness with zero LTI. Streamlined operations at Vlissingen harbor through rapid-turnaround workflows and adaptive quay occupancy strategies.</p>
-                    </div>
-                </div>
-                <div class="project-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
-                    <img src="./Pictures/Borselle 01+02 Innovation at work.JPG" alt="Innovation" class="project-image">
-                    <div class="project-content">
-                        <h3>Borselle 01 + 02 - Ørsted, NL</h3>
-                        <div class="project-type">Offshore Wind Installation | 752 MW | Dutch sector, North Sea | Monopile foundation installation | DEME</div>
-                        <p></p><p>
-Embedded onboard the Innovation jack-up vessel, I executed marine coordination and deck logistics for Ørsted’s Borssele site. Supervised foundation installation sequences, real-time MOC processes, and logistics loops (load-out, crew transfer, heavy lift). Provided interface support between marine ops, construction supervision, and permitting authorities. Focused on high-efficiency execution during constrained weather windows and ensured installation records aligned with commissioning KPIs.</p><p></p>
-                    </div>
-                </div><div class="project-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
-                    <img src="./Pictures/1688203159695.JPG" alt="Deepblue" class="project-image">
-                    <div class="project-content">
-                        <h3>Kaombo Subsea Umbilical Riser &amp; Flowline - Total, AO</h3>
-                        <div class="project-type">Subsea Engineering | 2,000m water depth | 300 km of pipeline &amp; 80 subsea structures | Two FPSOs | One of Africa’s largest subsea developments | TechnipFMC</div>
-                        <p>
-</p>
-                    <p>
-Led structural design of permanent subsea assets (FLETs, PLETs, flowlines) and heavy-lift handling systems for ultra-deepwater deployment. Developed lifting spreaders, seafastening, and boat landing designs validated under DAFs and fatigue life cycles per DNV-RP-C203. Deployed to Angola for field execution: coordinated deck layout, lift operations, and handover of subsea packages from fabrication yard to offshore vessel. Ensured construction deliverables met project tolerances, installation metocean constraints, and FPSO tie-in deadlines.</p></div>
-                </div>
-                <div class="project-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
-                    <img src="./Pictures/07f633e12133ce7f05ac11a81d8b3787.jpeg" alt="Coral" class="project-image">
-                    <div class="project-content">
-                        <h3>Coral South FLNG - ENI, MZ</h3>
-                        <div class="project-type">FLNG Topsides | 3.4 MTPA floating LNG unit | Deepwater gas liquefaction | First FLNG unit deployed in Africa | TechnipFMC</div>
-                        <p>
-</p>
-                    <p>Contributed to detailed design of primary structures for topside flare tower and pipe racks (8,000+ tons). Applied API and marine operation DNV standards for accidendal, operational, lifting, and offshore loading. Led internal training on structural methodologies and co-authored design guidelines for project rollout. Played a key role in the technical proposal phase that secured the EPC contract award in 2017.</p></div>
-                </div>
-            <div class="project-card" style="animation: 0.6s ease 0s 1 normal forwards running fadeInUp;">
-                    <img src="./Pictures/prelude-flng.jpg" alt="Prelude" class="project-image">
-                    <div class="project-content">
-                        <h3>Prelude FLNG - Shell, AU</h3>
-                        <div class="project-type">FLNG Topsides | World's largest FLNG vessel | Weathervaning turret | 600m deep mooring | Australia | SBM Offshore</div>
-                        <p>Executed critical hull–turret integration assessments for the Prelude turret bearing system. Applied Monte Carlo simulations and tolerance stack-up analysis using FEA to validate yard fabrication capabilities Delivered fabrication-constrained design inputs for turret interface structures. Supported construction readiness by resolving integration challenges across EPC interfaces.
-
-</p>
-                    </div>
-                </div></div>
-        </div>
-    </section>
+                }
 
     <!-- About Me Section -->
     <section id="about" class="about-section">
