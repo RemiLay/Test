@@ -1363,14 +1363,223 @@
             <p>© 2025 Lay Offshore Solutions | All rights reserved. Rémi Lay</p>
         </div>
     </footer>
-
+	
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">×</button>
+        <button class="lightbox-nav prev" onclick="lightboxPrev()">‹</button>
+        <button class="lightbox-nav next" onclick="lightboxNext()">›</button>
+        <div class="lightbox-content">
+            <img id="lightbox-image" class="lightbox-image" src="" alt="">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+	
     <script>
+	     // Gallery data with your actual project images
+        const galleryData = {
+            vineyard: [
+                {
+                    src: './Pictures/vw.jpeg',
+                    caption: 'Vineyard Wind 1 - Offshore installation operations'
+                },
+                {
+                    src: './Pictures/vw.jpeg',
+                    caption: 'Haliade-X turbine components ready for installation'
+                },
+                {
+                    src: './Pictures/vw.jpeg',
+                    caption: 'Foundation installation and logistics operations'
+                },
+                {
+                    src: './Pictures/vw.jpeg',
+                    caption: 'Project completion and operational readiness'
+                }
+            ],
+            moray: [
+                {
+                    src: './Pictures/dob.JPG',
+                    caption: 'Moray East - DP2 installation vessel mobilization'
+                },
+                {
+                    src: './Pictures/dob.JPG',
+                    caption: 'Port logistics and marshaling operations'
+                },
+                {
+                    src: './Pictures/dob.JPG',
+                    caption: 'Cable installation and foundation work'
+                }
+            ],
+            borselle: [
+                {
+                    src: './Pictures/Borselle 01+02 Innovation at work.JPG',
+                    caption: 'Borselle 01+02 - Innovation jack-up vessel operations'
+                },
+                {
+                    src: './Pictures/Borselle 01+02 Innovation at work.JPG',
+                    caption: 'Marine coordination and deck logistics'
+                },
+                {
+                    src: './Pictures/Borselle 01+02 Innovation at work.JPG',
+                    caption: 'Foundation installation sequence and crew operations'
+                }
+            ],
+            kaombo: [
+                {
+                    src: './Pictures/1688203159695.JPG',
+                    caption: 'Kaombo Subsea - Ultra-deepwater subsea structures'
+                },
+                {
+                    src: './Pictures/1688203159695.JPG',
+                    caption: 'Subsea installation and heavy-lift operations'
+                }
+            ],
+            coral: [
+                {
+                    src: './Pictures/07f633e12133ce7f05ac11a81d8b3787.jpeg',
+                    caption: 'Coral South FLNG - Topside structures and flare tower'
+                },
+                {
+                    src: './Pictures/07f633e12133ce7f05ac11a81d8b3787.jpeg',
+                    caption: 'FLNG unit construction and assembly operations'
+                }
+            ],
+            prelude: [
+                {
+                    src: './Pictures/prelude-flng.jpg',
+                    caption: 'Prelude FLNG - World\'s largest FLNG vessel'
+                },
+                {
+                    src: './Pictures/prelude-flng.jpg',
+                    caption: 'Turret bearing system and hull integration'
+                }
+            ]
+        };
+
+        let currentGallery = '';
+        let currentImageIndex = 0;
+
+        // Initialize galleries
+        function initializeGalleries() {
+            const galleries = document.querySelectorAll('.project-gallery');
+            
+            galleries.forEach(gallery => {
+                const galleryId = gallery.dataset.gallery;
+                const images = galleryData[galleryId];
+                const mainImage = gallery.querySelector('.gallery-main-image');
+                const dots = gallery.querySelectorAll('.gallery-dot');
+                const counter = gallery.querySelector('.gallery-counter');
+                const prevBtn = gallery.querySelector('.gallery-arrow.prev');
+                const nextBtn = gallery.querySelector('.gallery-arrow.next');
+
+                let currentIndex = 0;
+
+                // Update image and UI
+                function updateGallery(index) {
+                    if (images && images[index]) {
+                        mainImage.src = images[index].src;
+                        mainImage.alt = images[index].caption;
+                        
+                        // Update dots
+                        dots.forEach((dot, i) => {
+                            dot.classList.toggle('active', i === index);
+                        });
+                        
+                        // Update counter
+                        if (counter) {
+                            counter.querySelector('.current-image').textContent = index + 1;
+                            counter.querySelector('.total-images').textContent = images.length;
+                        }
+                        
+                        currentIndex = index;
+                    }
+                }
+
+                // Dot navigation
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => updateGallery(index));
+                });
+
+                // Arrow navigation
+                prevBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const newIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+                    updateGallery(newIndex);
+                });
+
+                nextBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const newIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+                    updateGallery(newIndex);
+                });
+
+                // Click on image to open lightbox
+                mainImage.addEventListener('click', () => {
+                    openLightbox(galleryId, currentIndex);
+                });
+
+                // Auto-rotate gallery (optional - 5 seconds)
+                let autoRotate = setInterval(() => {
+                    const newIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+                    updateGallery(newIndex);
+                }, 5000);
+
+                // Pause auto-rotate on hover
+                gallery.addEventListener('mouseenter', () => clearInterval(autoRotate));
+                gallery.addEventListener('mouseleave', () => {
+                    autoRotate = setInterval(() => {
+                        const newIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+                        updateGallery(newIndex);
+                    }, 5000);
+                });
+            });
+        }
+
+        // Lightbox functions
+        function openLightbox(galleryId, imageIndex) {
+            currentGallery = galleryId;
+            currentImageIndex = imageIndex;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            const images = galleryData[galleryId];
+            if (images && images[imageIndex]) {
+                lightboxImage.src = images[imageIndex].src;
+                lightboxImage.alt = images[imageIndex].caption;
+                lightboxCaption.textContent = images[imageIndex].caption;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function lightboxPrev() {
+            const images = galleryData[currentGallery];
+            currentImageIndex = currentImageIndex > 0 ? currentImageIndex - 1 : images.length - 1;
+            openLightbox(currentGallery, currentImageIndex);
+        }
+
+        function lightboxNext() {
+            const images = galleryData[currentGallery];
+            currentImageIndex = currentImageIndex < images.length - 1 ? currentImageIndex + 1 : 0;
+            openLightbox(currentGallery, currentImageIndex);
+        }
+
+	
 	 // Get references to the elements
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
         const overlay = document.getElementById('overlay');
         const navLinksMobile = mobileMenu.querySelectorAll('ul li a'); // Get all links in the mobile menu
 
+	                // Initialize galleries
+            initializeGalleries();
+	    
         // Function to toggle the menu state
         function toggleMenu() {
             hamburger.classList.toggle('active');
@@ -1390,7 +1599,26 @@
         navLinksMobile.forEach(link => {
             link.addEventListener('click', toggleMenu);
         });
-	    
+
+	    // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const lightbox = document.getElementById('lightbox');
+                if (lightbox.classList.contains('active')) {
+                    closeLightbox();
+                } else {
+                    closeMenu();
+                }
+            }
+            if (e.key === 'ArrowLeft') lightboxPrev();
+            if (e.key === 'ArrowRight') lightboxNext();
+        });
+
+        // Close lightbox when clicking outside image
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') closeLightbox();
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
