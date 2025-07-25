@@ -961,9 +961,39 @@
 
             .services-grid,
             .projects-grid,
-            .About Me-steps {
+           /* .About Me-steps {
                 grid-template-columns: 1fr;
+            }*/
+		/* About Section Mobile Improvements */
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
             }
+
+            .about-image {
+                order: -1;
+                margin-bottom: 1rem;
+            }
+
+            .about-image img {
+                width: 160px;
+            }
+
+            .about-text {
+                text-align: left;
+                gap: 1rem;
+            }
+
+            .about-text p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .about-text p:first-child {
+                font-size: 1rem;
+            }
+		/* end */ 
             .Recommendations-steps {
                 grid-template-columns: 1fr;
             }
