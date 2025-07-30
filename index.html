@@ -964,7 +964,42 @@
            /* .About Me-steps {
                 grid-template-columns: 1fr;
             }*/
-		/* About Section Mobile Improvements */
+		/* About section improvements */
+	  .about-content {
+   		display: block;          /* ← CHANGED: From grid to block */
+    		position: relative;      /* ← NEW: Added positioning */
+}
+
+	   .about-image {
+   		float: left;            /* ← NEW: Float image left */
+    		margin: 0 20px 20px 0;  /* ← NEW: Proper spacing around image */
+    		min-width: auto;        /* ← CHANGED: Remove min-width constraint */
+}
+
+	    .about-image img {
+		width: 120px;           /* ← CHANGED: Smaller image (was 160px) */
+    		border-radius: 15px;    /* ← CHANGED: Smaller border radius */
+
+	    .about-text {
+                text-align: left;
+                gap: 1rem;
+            }
+
+            .about-text p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .about-text p:first-child {
+                font-size: 1rem;
+		    
+		/* Clear float after about content */
+	    .about-content::after {     /* ← NEW: Clear float */
+    		content: "";
+    		display: table;
+    		clear: both;
+}
+		/* About Section Mobile Improvements 
             .about-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -977,7 +1012,7 @@
             }
 
             .about-image img {
-                width: 160px;
+                width: 120px;
 		float: left;
             }
 
@@ -993,7 +1028,7 @@
 
             .about-text p:first-child {
                 font-size: 1rem;
-            }
+            } */ 
 		/* end */ 
             .Recommendations-steps {
                 grid-template-columns: 1fr;
