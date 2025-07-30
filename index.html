@@ -965,24 +965,32 @@
                 grid-template-columns: 1fr;
             }*/
 		/* About section improvements */
-	  .about-content {
-   		display: block;          /* ← CHANGED: From grid to block */
-    		position: relative;      /* ← NEW: Added positioning */
-}
+	              /* 🟢 NEW: Stacked layout with centered image */
+            .about-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-bottom: 3rem;
+            }
 
-	   .about-image {
-   		float: left;            /* ← NEW: Float image left */
-    		margin: 0 20px 20px 0;  /* ← NEW: Proper spacing around image */
-    		min-width: auto;        /* ← CHANGED: Remove min-width constraint */
-}
+            /* 🟢 NEW: Center image above text */
+            .about-image {
+                margin-bottom: 2rem;
+                min-width: auto;
+            }
 
-	    .about-image img {
-		width: 100px;           /* ← CHANGED: Smaller image (was 160px) */
-    		border-radius: 15px;    /* ← CHANGED: Smaller border radius */
+            /* 🔵 MODIFIED: Smaller centered image */
+            .about-image img {
+                width: 140px;
+                border-radius: 15px;
+            }
 
-	    .about-text {
+            /* 🟢 NEW: Left-aligned text below centered image */
+            .about-text {
                 text-align: left;
                 gap: 1rem;
+                width: 100%;
             }
 
             .about-text p {
